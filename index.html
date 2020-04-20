@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>Document</title>
+
+    <style>
+        .tabs {
+            border: 1px solid transparent;
+            border-radius: 22px;
+            max-width: 40%;
+            background-color: #90A4AE;
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
+        .tabs a {
+            color: white !important;
+            font-size: 16px !important;
+            text-transform: capitalize !important;
+            font-family: Lato !important;
+            font-weight: 700 !important;
+        }
+
+        .tabs a.active {
+            background-color: whitesmoke !important;
+            color: #607D8B !important;
+            border-radius: 22px;
+        }
+
+        .tabs .indicator {
+            background-color: transparent !important;
+        }
+
+        .windows,
+        .linux {
+            margin-left: 10px !important;
+        }
+
+        .main_price {
+            margin-bottom: 80px;
+        }
+
+        .main_price .card {
+            position: relative;
+            max-width: 300px;
+            height: auto;
+            background: #fff;
+            border-radius: 15px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            -webkit-transition: .5s;
+            transition: .5s;
+        }
+
+        .main_price .card:hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .title h3 {
+            position: relative;
+            margin: 20px 0 0;
+            padding: 0;
+            color: #212529;
+            font-size: 20px;
+            z-index: 2;
+        }
+
+        .title h3 span {
+            font-size: 15px;
+            color: #586768;
+        }
+
+        .price,
+        .option {
+            position: relative;
+            z-index: 2;
+        }
+
+        .price h4 {
+            margin: 0;
+            padding: 10px 0;
+            color: #212529;
+            font-size: 30px;
+        }
+
+        .option ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .option ul li {
+            margin: 0 0 10px;
+            padding: 0;
+            list-style: none;
+            color: #4c5b63;
+            font-size: 14px;
+        }
+
+        .main_price .card a {
+            position: relative;
+            z-index: 2;
+            background: #2fd5c9;
+            border: 2px solid #2fd5c9;
+            color: white;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 40px;
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+            font-size: 14px;
+            cursor: pointer;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main_price .card a:hover {
+            text-decoration: none;
+            background: white;
+            color: #2fd5c9;
+        }
+
+        .mo {
+            font-size: 14px !important;
+            margin-right: 5px;
+            margin-top: 0;
+        }
+
+        #last {
+            background: linear-gradient(to bottom right, #79799c, #131327);
+        }
+
+        #last h3,
+        #last h4 {
+            color: white;
+        }
+
+        #last h3 span {
+            color: #e1e6e8;
+        }
+
+        #last li {
+            color: #D4DCE0;
+        }
+
+        .panel .panel-heading .nav-tabs {
+            margin-bottom: -11px;
+        }
+
+        #unique_price li {
+            margin-bottom: 30px;
+        }
+
+        #unique_price {
+            border-bottom: none;
+            padding: 4px;
+
+            border-radius: 4px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            display: table;
+            margin-top: 40px;
+            margin-bottom: 35px;
+        }
+
+        #unique_price li:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        #unique_price>li.active>a {
+            border: none;
+            background: #33334f;
+            border-radius: 4px;
+            bottom: 3px;
+            top: 3px;
+            z-index: 0;
+            transform: translateY(1%);
+            font-size: 14px;
+            color: #ffffff !important;
+            left: 3px;
+            right: auto;
+        }
+
+        #unique_price>li>a {
+            color: #b4c3ca;
+            background: #f3f2f8;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            padding: 13px 0 !important;
+            z-index: 1;
+            position: static;
+            text-transform: capitalize;
+            width: 160px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>Example tab 2 (using standard nav-tabs)</h2>
+    </div>
+
+    <div id="exTab2" class="main_price container">
+        <div class="panel ">
+            <div class="panel-title">
+                <ul class="nav nav-tabs" id="unique_price">
+                    <li class="active" id="months">
+                        <a href="#1" data-toggle="tab">Overview</a>
+                    </li>
+                    <li id="years"><a href="#2" data-toggle="tab">Without clearfix</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content ">
+                <div id="1" class="tab-pane active col s12">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="card text-left">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col one -->
+                                <div class="col-sm-3">
+                                    <div class="card text-left">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col two -->
+                                <div class="col-sm-3">
+                                    <div class="card text-left">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col three -->
+                                <div class="col-sm-3">
+                                    <div class="card text-left" id="last">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col Four -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="2" class="tab-pane col s12">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="card text-left">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col one -->
+                                <div class="col-sm-3">
+                                    <div class="card text-left">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col two -->
+                                <div class="col-sm-3">
+                                    <div class="card text-left">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <li>4 GB RAMh</li>
+                                                <li>50 GB HDD Disk</li>
+                                                <li>Full Root Admin Access</li>
+                                                <li>Windows VPS</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col three -->
+                                <div class="col-sm-3">
+                                    <div class="card text-left" id="last">
+                                        <div class="title">
+                                            <h3>Basic Plan <br> <span>Regular VPS</span></h>
+                                        </div>
+                                        <div class="price">
+                                            <h4>$7.95<span class="mo">/mo</span></h4>
+                                        </div>
+                                        <div class="option">
+                                            <ul>
+                                                <li>2 vCPU 2.50Ghz </li>
+                                                <!-- <li>4 GB RAMh</li>
+                                                        <li>50 GB HDD Disk</li>
+                                                        <li>Full Root Admin Access</li>
+                                                        <li>Windows VPS</li> -->
+                                            </ul>
+                                        </div>
+                                        <a href="#">Start VPS <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- END Col Four -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
